@@ -1,7 +1,7 @@
 public class DeliveryCalculator {
     public static String calculateDelivery(int amount) {
 
-        String delivery = "";
+        String delivery;
         if (amount >= 0 && amount <= 2999) {
             delivery = "250 рублей";
         } else if (amount >= 3000) {
