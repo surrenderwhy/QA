@@ -27,8 +27,8 @@ public class DeliveryBatchTest {
 
     @Test
     void countsPaidDeliveries_3() {
-        int[] amounts = {3000, 3000};
-        int[] distancesKm = {1, 21};
+        int[] amounts = {3000, 250};
+        int[] distancesKm = {1, 1};
         boolean[] expressFlags = {false, false};
 
         int[] actual = DeliveryBatch.summarize(amounts, distancesKm, expressFlags);
@@ -46,8 +46,19 @@ public class DeliveryBatchTest {
     }
 
     @Test
-    void countsPaidDeliveries_5() {
+    void countsPaidDeliveries_5_1() {
         int[] amounts = {1, -3, 3000};
+        int[] distancesKm = {1, 10, 100};
+        boolean[] expressFlags = {false, false, false};
+
+
+        int[] actual = DeliveryBatch.summarize(amounts, distancesKm, expressFlags);
+        assertArrayEquals(new int[]{2, 0, 1}, actual);
+    }
+
+    @Test
+    void countsPaidDeliveries_5_2() {
+        int[] amounts = {1, 3, 3000};
         int[] distancesKm = {1, -10, 100};
         boolean[] expressFlags = {false, false, false};
 
@@ -55,6 +66,7 @@ public class DeliveryBatchTest {
         int[] actual = DeliveryBatch.summarize(amounts, distancesKm, expressFlags);
         assertArrayEquals(new int[]{2, 0, 1}, actual);
     }
+
 
     @Test
     void countsPaidDeliveries_6() {
@@ -104,5 +116,27 @@ public class DeliveryBatchTest {
             DeliveryBatch.summarize(new int []{1, 2}, new int []{1}, new boolean[]{false, false});
         });
         assertEquals("Длины массивов должны совпадать", exception.getMessage());
+    }
+
+    @Test
+    void addition_11() {
+        int[] amounts = {1000};
+        int[] distancesKm = {10};
+        boolean[] expressFlags = {false};
+
+        int[] amountsBefore = amounts.clone();
+        int[] distancesBefore = distancesKm.clone();
+        boolean[] expressBefore = expressFlags.clone();
+
+        int[] actual = DeliveryBatch.summarize(
+                amounts, distancesKm, expressFlags
+        );
+
+        assertArrayEquals(amountsBefore, amounts);
+        assertArrayEquals(distancesBefore, distancesKm);
+        assertArrayEquals(expressBefore, expressFlags);
+
+        assertArrayEquals(new int[]{1, 0, 0}, actual);
+
     }
 }

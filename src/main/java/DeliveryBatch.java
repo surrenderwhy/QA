@@ -22,7 +22,6 @@ public class DeliveryBatch {
                     }
                 }
                 catch (IllegalArgumentException e) {
-                    System.out.println("Сумма заказа не может быть отрицательной");
                     error++;
                 }
             }
@@ -31,9 +30,10 @@ public class DeliveryBatch {
     }
 
     public static void main(String[] args) {
-        int[] amounts = {1000, 3000, -1};
-        int[] distancesKm = {10, 20, 10};
+        int[] amounts = {1, -3, 3000};
+        int[] distancesKm = {1, -10, 100};
         boolean[] expressFlags = {false, false, false};
+
 
         int[] result = summarize(amounts, distancesKm, expressFlags);
         System.out.println(java.util.Arrays.toString(result));
