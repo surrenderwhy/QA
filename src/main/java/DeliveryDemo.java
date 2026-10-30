@@ -8,6 +8,7 @@ public class DeliveryDemo {
         } else {
             throw new IllegalArgumentException("Стоимость  не может быть отрицательной");
         }
+
         return delivery;
     }
 
