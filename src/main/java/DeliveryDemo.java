@@ -6,7 +6,7 @@ public class DeliveryDemo {
         } else if (cost > 0) {
             delivery = "Стоимость доставки: " + cost + " рублей";
         } else {
-            throw new IllegalArgumentException("Стоимость  не может быть отрицательной");
+            throw new IllegalArgumentException("Стоимость не может быть отрицательной");
         }
         return delivery;
     }
