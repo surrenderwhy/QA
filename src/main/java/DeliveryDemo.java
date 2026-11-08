@@ -20,12 +20,12 @@ public class DeliveryDemo {
 
         Link.amount = 100;
 
-        order1.amount = 3000;
+        order1.amount = 2999;
         order1.distanceKm = 10;
         order1.express = true;
 
         order2.amount = 3000;
-        order2.distanceKm = 1;
+        order2.distanceKm = 100;
         order2.express = true;
 
         order3.amount = 0;
@@ -43,6 +43,13 @@ public class DeliveryDemo {
         System.out.println("Расстояние order1: " + order1.distanceKm);
         System.out.println("Расстояние order2: " + order2.distanceKm);
         System.out.println("Расстояние order3: " + order3.distanceKm);
+
+        order2.distanceKm = 10;
+
+        System.out.println("Расстояние order2: " + order2.distanceKm);
+        System.out.println("order1: " + describeCost(DeliveryPricing.calculate(order1.amount, order1.distanceKm, order1.express)));
+        System.out.println("order2: " + describeCost(DeliveryPricing.calculate(order2.amount, order2.distanceKm, order2.express)));
+        System.out.println("order3: " + describeCost(DeliveryPricing.calculate(order3.amount, order3.distanceKm, order3.express)));
 
         DeliveryOrder link = order1;
         link.amount = 1000;
