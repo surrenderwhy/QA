@@ -22,4 +22,10 @@ public class DeliveryDemoTest {
         assertEquals("Стоимость не может быть отрицательной", exception.getMessage());
     }
 
+    @Test
+    void addition_4() {
+        DeliveryOrder order1 = new DeliveryOrder(2999, 10, true);
+        assertEquals("Стоимость доставки: 1 рублей", DeliveryDemo.describeCost(1));
+    }
+
 }

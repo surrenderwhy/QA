@@ -13,24 +13,10 @@ public class DeliveryDemo {
 
     public static void main(String[] args) {
 
-        DeliveryOrder order1 = new DeliveryOrder();
-        DeliveryOrder order2 = new DeliveryOrder();
-        DeliveryOrder order3 = new DeliveryOrder();
-        DeliveryOrder Link = new DeliveryOrder();
-
-        Link.amount = 100;
-
-        order1.amount = 2999;
-        order1.distanceKm = 10;
-        order1.express = true;
-
-        order2.amount = 3000;
-        order2.distanceKm = 100;
-        order2.express = true;
-
-        order3.amount = 0;
-        order3.distanceKm = 21;
-        order3.express = true;
+        DeliveryOrder order1 = new DeliveryOrder(2999, 10, true);
+        DeliveryOrder order2 = new DeliveryOrder(3000, 100, true);
+        DeliveryOrder order3 = new DeliveryOrder(0, 21, true);
+        DeliveryOrder Link = new DeliveryOrder(100, 10, true);
 
         int calculate1 = DeliveryPricing.calculate(order1.amount, order1.distanceKm, order1.express);
         int calculate2 = DeliveryPricing.calculate(order2.amount, order2.distanceKm,order2.express);
@@ -56,5 +42,6 @@ public class DeliveryDemo {
         System.out.println("Сумма order1: " + order1.amount);
 
         System.out.println("Сумма Link: " + Link.amount);
+
     }
 }
