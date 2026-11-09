@@ -18,30 +18,27 @@ public class DeliveryDemo {
         DeliveryOrder order3 = new DeliveryOrder(0, 21, true);
         DeliveryOrder Link = new DeliveryOrder(100, 10, true);
 
-        int calculate1 = DeliveryPricing.calculate(order1.amount, order1.distanceKm, order1.express);
-        int calculate2 = DeliveryPricing.calculate(order2.amount, order2.distanceKm,order2.express);
-        int calculate3 = DeliveryPricing.calculate(order3.amount, order3.distanceKm, order3.express);
+        int calculate1 = DeliveryPricing.calculate(order1.getAmount(), order1.getDistanceKm(), order1.isExpress());
+        int calculate2 = DeliveryPricing.calculate(order2.getAmount(), order2.getDistanceKm(),order2.isExpress());
+        int calculate3 = DeliveryPricing.calculate(order3.getAmount(), order3.getDistanceKm(), order3.isExpress());
 
         System.out.println(describeCost(calculate1));
         System.out.println(describeCost(calculate2));
         System.out.println(describeCost(calculate3));
 
-        System.out.println("Расстояние order1: " + order1.distanceKm);
-        System.out.println("Расстояние order2: " + order2.distanceKm);
-        System.out.println("Расстояние order3: " + order3.distanceKm);
+        System.out.println("Расстояние order1: " + order1.getDistanceKm());
+        System.out.println("Расстояние order2: " + order2.getDistanceKm());
+        System.out.println("Расстояние order3: " + order3.getDistanceKm());
 
-        order2.distanceKm = 10;
-
-        System.out.println("Расстояние order2: " + order2.distanceKm);
-        System.out.println("order1: " + describeCost(DeliveryPricing.calculate(order1.amount, order1.distanceKm, order1.express)));
-        System.out.println("order2: " + describeCost(DeliveryPricing.calculate(order2.amount, order2.distanceKm, order2.express)));
-        System.out.println("order3: " + describeCost(DeliveryPricing.calculate(order3.amount, order3.distanceKm, order3.express)));
+        System.out.println("order1: " + describeCost(DeliveryPricing.calculate(order1.getAmount(), order1.getDistanceKm(), order1.isExpress())));
+        System.out.println("order2: " + describeCost(DeliveryPricing.calculate(order2.getAmount(), order2.getDistanceKm(), order2.isExpress())));
+        System.out.println("order3: " + describeCost(DeliveryPricing.calculate(order3.getAmount(), order3.getDistanceKm(), order3.isExpress())));
 
         DeliveryOrder link = order1;
-        link.amount = 1000;
-        System.out.println("Сумма order1: " + order1.amount);
 
-        System.out.println("Сумма Link: " + Link.amount);
+        System.out.println("Сумма order1: " + order1.getAmount());
+
+        System.out.println("Сумма Link: " + Link.getAmount());
 
     }
 }
