@@ -41,4 +41,16 @@ public class DeliveryDemo {
         System.out.println("Сумма Link: " + Link.getAmount());
 
     }
+
+    static int calculateOrder(DeliveryOrder order) {
+        if (order == null) {
+            throw new IllegalArgumentException("Заказ не должен быть null");
+        }
+
+        return DeliveryPricing.calculate(
+            order.getAmount(),
+            order.getDistanceKm(),
+            order.isExpress()
+        );
+    }
 }
