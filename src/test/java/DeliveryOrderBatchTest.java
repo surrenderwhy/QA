@@ -32,7 +32,6 @@ public class DeliveryOrderBatchTest {
         IllegalArgumentException exception = assertThrows(IllegalArgumentException.class,  () -> {
             DeliveryOrderBatch.summarize(null) ;
         });
-
         assertEquals("Массив заказов не должен быть null", exception.getMessage());
     }
 
@@ -56,11 +55,6 @@ public class DeliveryOrderBatchTest {
         DeliveryOrder[] orders2 = { new DeliveryOrder(3000, 20, false) };
 
         int[] result2 = DeliveryOrderBatch.summarize(orders2);
-
         assertArrayEquals(new int[]{0, 1, 0}, result2);
     }
-
-
-
-
 }

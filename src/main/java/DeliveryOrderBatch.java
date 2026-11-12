@@ -25,7 +25,6 @@ public class DeliveryOrderBatch {
         }
         return new int[]{paid, free, error};
 
-
     }
     public static void main(String[] args) {
         DeliveryOrder[] orders = {
