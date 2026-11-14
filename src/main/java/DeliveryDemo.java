@@ -13,6 +13,7 @@ public class DeliveryDemo {
 
     public static void main(String[] args) {
 
+
         DeliveryOrder order1 = new DeliveryOrder(2999, 10, true);
         DeliveryOrder order2 = new DeliveryOrder(3000, 100, true);
         DeliveryOrder order3 = new DeliveryOrder(0, 21, true);

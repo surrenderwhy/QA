@@ -4,6 +4,13 @@ class DeliveryOrder {
     private boolean express;
 
     public DeliveryOrder(int amount, int distanceKm, boolean express) {
+        if (amount < 0) {
+            throw new IllegalArgumentException("Сумма заказа не может быть отрицательной");
+        }
+        if (distanceKm < 1 || distanceKm > 100) {
+            throw new IllegalArgumentException("Расстояние должно быть от 1 до 100 км");
+        }
+
         this.amount = amount;
         this.distanceKm = distanceKm;
         this.express = express;
