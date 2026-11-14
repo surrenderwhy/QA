@@ -1,0 +1,29 @@
+class DeliveryOrder {
+    private int amount;
+    private int distanceKm;
+    private boolean express;
+
+    public DeliveryOrder(int amount, int distanceKm, boolean express) {
+        this.amount = amount;
+        this.distanceKm = distanceKm;
+        this.express = express;
+    }
+
+    String describe(){
+        return "Сумма: " + this.amount + ", расстояние: " + this.distanceKm + ", express: " + this.express;
+    }
+
+    public int getAmount(){
+        return amount;
+    }
+
+    public int getDistanceKm(){
+        return distanceKm;
+    }
+
+    public boolean isExpress(){
+        return express;
+    }
+}
+
+
